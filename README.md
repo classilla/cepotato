@@ -1,4 +1,4 @@
-# The Commodore 128 ComputerEyes Potato Webcam
+# The Commodore 128 ComputerEyes Potato Livecam
 
 [Another Old VCR Funky Moment!](http://oldvcr.blogspot.com/)
 
@@ -21,7 +21,9 @@ make upon this genuine and good-faith assertion.
 This project is intended for a Commodore 128 _in 64 mode_ with a Digital
 Vision ComputerEyes (NTSC) acquisition module. This device allows the
 C64 and C128 to get a slow-scan image of a still video image within a few
-seconds or up to 50 seconds for the highest quality.
+seconds or up to 50 seconds for the highest quality. It can't generate a
+live feed with the default software due to the VIC-II's interference, so
+this project enables the VDC to display the video feed instead.
 
 The project is primarily assembled with the
 [`xa` cross assembler](http://www.floodgap.com/retrotech/xa/). This is a
@@ -38,7 +40,7 @@ When you build the project with `make`, three files are generated:
 
 * `ced`. This is a single-file version of Digital Vision's original ComputerEyes driver. It is compatible with the 64 and 128. `LOAD` and `RUN` it in 64 mode like a BASIC program. It will allow you to capture images and manually adjust the sync and brightness. Please note the help files are not included; if you want the original `.d64` with all the other files, see [this post](https://gmontag451.wordpress.com/2015/02/15/computereyes-on-the-commodore-64/). Capture takes between six and fifty seconds depending on complexity and quality.
 
-* `vdcslow`. This runs on the 128 only _in 64 mode_. `LOAD` and `RUN` it like a BASIC program. It will first allow you to manually adjust the sync; press any key when the display is `IN SYNC`. It will then allow you to manually adjust the brightness; press any key when the display has good contrast range. The screen will then turn red to prompt you to switch to the 128's VDC output (thus you must have a compatible monitor such as a 1902 or 1084, or use the VDC's composite pin). A "live" feed of any connected video source will appear, updated approximately every six or seven seconds. If you press SHIFT LOCK, the source will freeze; while frozen, press the Commodore key until the disk drive starts to save the image to disk as a Portable Bit Map P4 file. This is saved under the filenames `0vdcgrab.pbm`, `1vdcgrab.pbm`, and so forth. Samples of this output are in this project (`*.pbm`). Any existing file under this name will be deleted. Relase SHIFT LOCK to continue the feed.
+* `vdcslow`. This runs on the 128 only _in 64 mode_. `LOAD` and `RUN` it like a BASIC program. It will first allow you to manually adjust the sync; press any key when the display is `IN SYNC`. It will then allow you to manually adjust the brightness; press any key when the display has good contrast range. The screen will then turn red to prompt you to switch to the 128's VDC output (thus you must have a compatible monitor such as a 1902 or 1084, or use the VDC's composite pin). A "live" feed of any connected video source will appear, updated approximately every six or seven seconds. If you press SHIFT LOCK, the source will freeze; while frozen, press the Commodore key until the disk drive starts to save the image to disk as a Portable Bit Map P4 file. This is saved under the filenames `0vdcgrab.pbm`, `1vdcgrab.pbm`, and so forth. Samples of this output are in this project (`*.pbm`). Any existing file under this name will be deleted. Release SHIFT LOCK to continue the feed.
 
 * `vdcfast`. This is exactly the same as `vdcslow` except that it captures only 89% of the view but runs approximately 25% faster, about five to six seconds per frame.
 
