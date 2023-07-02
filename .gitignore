@@ -1,0 +1,14 @@
+a.out
+bak/
+bak/*
+orig/
+orig/*
+test/*.o
+test/*.sym
+test/vdc320
+ced
+vdcfast
+vdcslow
+*.o
+*.sym
+*.tok
